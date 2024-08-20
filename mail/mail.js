@@ -18,17 +18,20 @@ form.addEventListener('submit', function (event) {
     let isAllowed = false;
 
     // email control
-    for (let i = 0; i < allowedEmails.length; i++) {
+    for (let i = 0; !isAllowed && i < allowedEmails.length; i++) {
         const emailToCheck = allowedEmails[i];
+
+        console.log('user mail:', email, '-mail validated:', emailToCheck)
 
         if (email === emailToCheck) {
             isAllowed = true;
         }
+
+        console.log('result:', isAllowed);
     }
 
-
     // output
-    const message = isAllowed ? 'Benvenuto' : 'Accesso negato';
+    const message = isAllowed ? 'Benvenuto' : 'Accesso negato'
 
     resultElement.innerText = message;
 })
